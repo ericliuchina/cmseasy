@@ -1,0 +1,133 @@
+{template 'wap/header.html'}
+<div class="blank10"></div>
+<div class="title">{if $category[$catid][parentid]}<a href="{category::url($category[$catid][parentid])}">{$category[$category[$catid][parentid]][catname]}</a> &gt; {/if}<a href="{category::url($catid)}">{$category[$catid][catname]}</a></div>
+
+{if $subids}
+<div id="search">
+{loop $subids $id}
+<a href="{category::url($id)}">{$category[$id][catname]}</a> |
+{/loop}
+</div>
+<div class="search_b"></div>
+{/if}
+
+
+<div class="clear box">
+<div class="p10" id="content" style="padding-left:15px;">
+
+<!-- 添加css开始 -->
+<style type = "text/css">
+#pro_view {clear:both;}
+
+#image_box img {
+  display:block;
+  margin:0px auto;
+  vertical-align:middle;
+  padding:5px;
+  border:1px solid #ccc;
+  _border:none;
+  background:url({$skin_path}/images/pic_bg.gif) left top no-repeat;
+  border-right:1px solid white; 
+  border-bottom:1px solid white;
+  }
+
+#pro_baseinfo {clear:both;}
+#image_list {clear:both;height:50px;}
+#image_list li {width:54px; height:38px; border:1px solid #ccc;overflow:hidden; }
+#image_list img {width:50px;height:36px; padding:2px;cursor:pointer;}
+
+#pro_baseinfo ul li {line-height:32px; border-bottom:1px dotted #ccc;}
+.p_info {height:40px;line-height:40px;padding-left:20px;background:url({$skin_path}/comment.gif) left center no-repeat;border-bottom:1px dotted #ccc;}
+</style>
+<!-- 添加css结束 -->
+
+
+<div id="pro_view">
+
+<div id="pro_infor">
+
+<!-- 下载说明图片开始 -->
+<div id="image_box">
+<img alt="{$archive[stitle]}" src="{$archive[thumb]}" onerror='this.src="{config::get('onerror_pic')}"' />
+</div>
+<!-- 下载说图片结束 -->
+</div>
+
+<!-- 下载属性开始 -->
+<div id="pro_baseinfo">
+<ul>
+<li><strong>{lang(downname)}：</strong>{$archive[title]}</li>
+<li><strong>{lang(view)}：</strong>{view_js($archive[aid])}</li>
+<li><strong>{lang(adddate)}：</strong>{$archive[adddate]}</li>
+{if $archive[attr3]}<li><strong>{lang(source)}：</strong>{$archive[attr3]}</li>{/if}
+<li><strong>{lang(dong_size)}：</strong>{$archive[my_size]}</li>
+<li><strong>{lang(strgrades)}：</strong>{$archive[strgrade]}</li>
+<li><strong>{lang(nowdownload)}：</strong>{attachment_js($archive['aid'])}</li>
+</ul>
+</div>
+<!-- 下载属性结束 -->
+
+</div>
+
+<div class="line_2"></div>
+<div class="blank30"></div>
+
+
+<div class="d_info">{lang(dintro)}：</div>
+<div class="blank30"></div>
+
+<!-- 下载说明开始 -->
+{$archive[content]}
+<!-- 下载说明结束 -->
+
+<div class="blank30"></div>
+
+
+
+<div class="blank30"></div>
+{if $pages>1}
+<!-- 内页分页 -->
+<div class="blank10"></div>
+<div class="pages">
+{archive_pagination($archive)}
+</div>
+<div class="blank30"></div>
+{/if}
+
+
+
+<div class="blank30"></div>
+
+
+
+<!-- 上下页开始 -->
+<div id="page">
+{if $archive['p']['aid']}
+<strong>{lang(archivep)}：</strong><a href="{$archive['p']['url']}">{$archive['p']['title']}</a>
+{else}
+<strong>{lang(archivep)}：</strong>{lang(nopage)}	
+{/if}
+<div class="clear"></div>
+{if $archive['n']['aid']}
+ <strong>{lang(archiven)}：</strong><a href="{$archive['n']['url']}">{$archive['n']['title']}</a>
+{else}
+<strong>{lang(archiven)}：</strong>{lang(nopage)}	
+{/if}
+</div>
+<!-- 上下页结束 -->
+
+<div class="blank10"></div>
+<div class="blank10"></div>
+<a href="javascript:history.back(-1)">{lang(backuppage)}</a>	|	<a href="{$base_url}/wap/">{lang(backhome)}</a>
+<div class="blank10"></div>
+</div>
+</div>
+<script defer>
+var obj = document.getElementById("content").getElementsByTagName("img");
+for(i=0;i<obj.length;i++){
+	if(obj[i].width>260){
+		obj[i].width = 260;
+	}
+}
+</script>
+{template 'wap/footer.html'}

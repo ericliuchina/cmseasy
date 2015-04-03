@@ -13,9 +13,6 @@
 * in order for CE Live to work, and other settings that
 **/
 
-if(is_file(dirname(__FILE__).'/webscan360/360safe/360webscan.php')){
-   require_once(dirname(__FILE__).'/webscan360/360safe/360webscan.php');
-}
 require_once("include/config.inc.php");
 require_once(CE_ROOT."/include/celive.class.php");
 $celive = new celive();

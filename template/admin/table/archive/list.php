@@ -1,6 +1,6 @@
 	<div class="blank20"></div>
 
-	 <div style="float:left;width:560px;margin-left:10px;overflow:hidden;">
+	 <div style="float:left;margin-left:10px;overflow:hidden;">
      <form name="searchform" id="searchform"  action="<?php echo uri();?>" method="post">
 
             栏目

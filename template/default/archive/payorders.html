@@ -1,13 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta content="telephone=no" name="format-detection">
+<meta http-equiv="x-rim-auto-match" content="none">
 <title>{lang(shoppingcart)}</title>
 <meta name="keywords" content="{if $archive[keyword]}{$archive[keyword]}{else}{if $type[keyword]}{$type[keyword]}{elseif $category[$catid][keyword]}{$category[$catid][keyword]}{else}{get('site_keyword')}{/if}{/if}" />
 <meta name="description" content="{if $archive[description]}{$archive[description]}{else}{if $type[description]}{$type[description]}{elseif $category[$catid][description]}{$category[$catid][description]}{else}{get('site_description')}{/if}{/if}" />
 <meta name="author" content="CmsEasy Team" />
 <link rel="icon" href="{$base_url}/favicon.ico" type="image/x-icon" />
-
+<link rel="stylesheet" media="screen and (min-width: 740px)" href="{$skin_path}/orders_w.css" />
+<link rel="stylesheet" media="screen and (max-width: 740px)" href="{$skin_path}/orders_s.css" />
 <style type="text/css">
 body {font-size:12px;}
 td.td_left,td.td_right {padding:3px 15px;}
@@ -40,7 +46,6 @@ td.td_left {text-align:right;}
 
 .blank30 {clear:both;height:30px;}
 .blank10 {clear:both;height:10px;}
-.box {clear:both; width:340px;margin:0px auto;padding:0px auto;overflow:hidden;}
 
 
 textarea {margin:5px 0px;}
@@ -108,8 +113,8 @@ textarea {margin:5px 0px;}
 <div class="clear"></div>
 </div>
 <div class="blank10"></div>
-<div class="f" style="color:#ccc;text-align:center;">
-{get(site_right)} <a title="{get('sitename')}" href="{$base_url}/">{get('sitename')}</a> All Rights Reserved.      Powered by <a href="http://www.cmseasy.cn" title="CmsEasy企业网站系统" target="_blank">CmsEasy</a>
+<div class="f"  style="display:none">
+Powered by <a href="http://www.cmseasy.cn" title="CmsEasy企业网站系统" target="_blank">CmsEasy</a>
 </div>
 </body>
 </html>

@@ -175,7 +175,7 @@ DROP TABLE IF EXISTS cmseasy_b_category;
 CREATE TABLE `cmseasy_b_category` (
   `catid` int(6) NOT NULL auto_increment,
   `parentid` int(6) NOT NULL,
-  `catname` varchar(30) NOT NULL,
+  `catname` varchar(255) NOT NULL,
   `scategory` varchar(50) default NULL,
   `listorder` int(11) default NULL,
   `image` varchar(150) default NULL,

@@ -1,0 +1,8 @@
+.box {clear:both; width:300px;margin:0px auto;padding:0px auto;overflow:hidden;}
+.box input,.box textarea {width:150px;}
+td.td_l {width:40%;}
+td.td_r {width:60%;}
+.s_none {display:none;}
+input.s_input {width:20px;}
+input.s_input_del {width:40px;}
+.s_subtotal {width:30px;}

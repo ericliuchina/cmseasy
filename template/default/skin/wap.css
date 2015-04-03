@@ -98,7 +98,7 @@ a:hover{color:#D9271F;text-decoration: underline;}
 
 
 .tel {height:26px;line-height:26px; padding:0px 0px 0px 20px; background:url(wap/tel.png) left center no-repeat;}
-
+.user{height:26px;line-height:26px; padding:0px 0px 0px 20px; background:url(wap/user.png) left center no-repeat;}
 .email {height:26px;line-height:26px; padding:0px 0px 0px 20px; background:url(wap/email.png) left center no-repeat;}
 .address {height:26px;line-height:26px; padding:0px 0px 0px 20px; background:url(wap/address.png) left center no-repeat;}
 
@@ -230,6 +230,7 @@ vertical-align:100%;
 .footer_ul li a span.massage{ background-position:-120px 0;}
 
 
+
 .mail_body02{ position:relative; padding-bottom:30px;}
 .mail_body02 ul li{margin: 5px 0; padding-left: 10px; }
 .mail_body02 .email_g, .mail_body02 .mail_title02{ padding-right:120px;}
@@ -316,4 +317,17 @@ margin:  0px 20px;
   font-size:12px;
   font-weight:bold;
 }
+
+#table {width:100%; overflow:hidden;}
+#table tr{ border-bottom:1px solid #ccc; height:auto; line-height:36px; }
+#table  th {background:#F5F5F5;border-top:1px solid #C3CED8;line-height:22px; border-left:1px solid #edf4f9; text-align:center;}
+#table td{ width:auto; height:auto;}
+#table  tr td{
+line-height:32px;
+border-bottom:1px solid #F5F5F5;
+padding:0px 10px;
+}
+.table_td tr td.left {text-align:right;}
+#table  tr td.left {width:30%;}
+.child {display:block;width:14px;height:32px;float:right;cursor:pointer;margin-right:20px;background:url(child.gif) left 12px no-repeat;}
 

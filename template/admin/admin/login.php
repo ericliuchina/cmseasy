@@ -26,6 +26,8 @@ background:url({$skin_path}/login/login_btn.png) no-repeat left top !important;
 /*For IE7 & IE6*/
 _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{$skin_path}/login/login_btn.png',sizingMethod='crop');
 }
+
+
 </style>
 </head>
 <body>
@@ -40,22 +42,24 @@ _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='{$skin_path}/log
 
     <form name="loginform" action="<?php echo uri();?>" method="post" onsubmit="return Dcheck();">
     <input type="hidden" name="submit" value="提交">
-     <input name="username" type="text" id="username" value="" class="input" tabindex="1" />
-    <input name="password" type="password" id="password" value="<?php //echo $password;?>" tabindex="2" class="input" />
-    <select name="expire" class="ss">
+<ul>
+    <li> <input name="username" type="text" id="username" value="" class="input" tabindex="1" /></li>
+    <li><input name="password" type="password" id="password" value="<?php //echo $password;?>" tabindex="2" class="input" /></li>
+    <li><select name="expire" class="ss">
       <option selected value=''>登录有效期-当前会话</option>
       <option value='86400'>登录有效期-1天</option>
       <option value='2592000'>登录有效期-1月</option>
       <option value='31536000'>登录有效期-1年</option>
-    </select>
+    </select></li>
 <?php
     //if($loginfalse){
 ?>
-     <p class="code">验证码: <input type='text' id="verify"  tabindex="3"  name="verify" />&nbsp;{verify()}</p>
+     <li class="code"><input type='text' id="verify" value="{lang(enter)}{lang(verifycode)}" onfocus="if(this.value=='{lang(enter)}{lang(verifycode)}') {this.value=''}" onblur="if(this.value=='') this.value='{lang(enter)}{lang(verifycode)}'"  tabindex="3"  name="verify" />{verify()}</li>
 <?php
 	//}
 ?>
-     <p><input type="submit" name="submit" value=" 登 陆 " class="login" tabindex="4" /></p>
+     <li><input type="submit" name="submit" value=" 登 陆 " class="login" tabindex="4" /></li>
+	 </ul>
      </form>
    
    <div style="clear:both;"></div>

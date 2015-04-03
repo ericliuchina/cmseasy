@@ -1,7 +1,5 @@
 <?php
 error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
-require_once('xss.php');
-require_once('360safe.php');
 date_default_timezone_set('Asia/Shanghai');
 define('MAGIC_QUOTES_GPC', function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc());
 if (isset($_GET['GLOBALS']) || isset($_POST['GLOBALS']) || isset($_COOKIE['GLOBALS']) || isset($_FILES['GLOBALS'])) {
@@ -31,9 +29,9 @@ function unescape($str) {
 	return join("",$ar); 
 }
 
-/*if(is_array($_POST) && !empty($_POST)){
+if(is_array($_POST) && !empty($_POST)){
 	$_POST = dxss($_POST);
-}*/
+}
 function remove_xss($val){
 	$val = preg_replace('/([\x00-\x08,\x0b-\x0c,\x0e-\x19])/', '', $val);
 	$search = 'abcdefghijklmnopqrstuvwxyz';
@@ -117,6 +115,14 @@ $GLOBALS['config'] = require_once('include/bbs_config.php');
 if(!$GLOBALS['config']['bbs_enable']){
 	echo "<script>alert('论坛功能已关闭');window.location.href='../index.php';</script>";exit;
 }
+if($GLOBALS['config']['safe360_enable']){
+    //echo dirname(__FILE__).'/../webscan360/360safe/360webscan.php';
+    if(is_file(dirname(__FILE__).'/../webscan360/360safe/360webscan.php')){
+        require_once(dirname(__FILE__).'/../webscan360/360safe/360webscan.php');
+        //echo '1';
+    }
+}
+
 
 require_once(ROOT . '/bbs/model/loadClass.php');
 require_once(ROOT . '/editor/fckeditor.php');

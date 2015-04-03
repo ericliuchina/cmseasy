@@ -1,7 +1,4 @@
 <?php
-if(is_file(dirname(__FILE__).'/webscan360/360safe/360webscan.php')){
-   require_once(dirname(__FILE__).'/webscan360/360safe/360webscan.php');
-}
 error_reporting(E_ALL & ~E_NOTICE);
 if($_GET['case'] == 'file'){
     echo "<script>window.location.href='".  str_replace('/bbs', '', htmlspecialchars($_SERVER['REQUEST_URI'],ENT_QUOTES))."';</script>";

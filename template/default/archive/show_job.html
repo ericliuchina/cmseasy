@@ -116,6 +116,11 @@ foreach($set_field as $key => $value) {
 {template 'myform/nrform.html'}
 {/if}
 <!-- 自定义表单结束 -->
+{if get('share')=='1'}
+<!-- 分享 -->
+<div class="blank30"></div>
+{template 'system/share.html'}
+{/if}
 
 <div class="blank30"></div>
 

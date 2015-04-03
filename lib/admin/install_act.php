@@ -101,7 +101,7 @@ class install_act extends act {
     }
 
     private function gather() {
-        $result = @file("http://www.cmseasy.cn/gather/gather.php?host=" . base64_encode($_SERVER['HTTP_HOST']) . '&uri=' . base64_encode($_SERVER['REQUEST_URI']));
+        //$result = @file("http://www.cmseasy.cn/gather/gather.php?host=" . base64_encode($_SERVER['HTTP_HOST']) . '&uri=' . base64_encode($_SERVER['REQUEST_URI']));
     }
 
 }

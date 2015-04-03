@@ -1,24 +1,46 @@
-html {
-  scrollbar-face-color : #F5F5F5;
-  scrollbar-arrow-color :#A0A0A0;
-  
-	width:100%;
-	height:100%;
-	overflow:hidden;
-}
-img  {border: 0px;}
-* {
-    padding:0;
-    margin:0;
-    }
-	a {color:white;text-decoration:none;}
+@charset "utf-8";
+html { scrollbar-face-color : #F5F5F5; scrollbar-arrow-color : #A0A0A0; }
+img { border: 0px; }
+* { margin: 0; padding: 0; }
+fieldset, img { border: 0; }
+li { list-style: none; }
+img, button, input, select, textarea, checkbox, radio { vertical-align: middle; font-size: 12px; }
+address, cite, dfn, em, var { font-style: normal; }
+code, kbd, samp { font-family: courier new, courier, monospace; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+h1, h2, h3, h4, h5, h6 { }
+h1 { font-size: 2em; }
+h2 { font-size: 1.7em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.38em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1.1em; font-style: italic; }
+address, cite, dfn, em, var { font-style: normal; }
+caption, td { font-weight: normal; }
+cite, blackquote, em, i { font-style: italic; }
+strong, b { font-weight: bold; }
+pre, code { font-family: monospace; font-size: 1.1em; }
+input { font-size: 12px; }
+textarea { font-size: 12px; line-height: 22px; padding: 0px 10px; }
+.floatleft { float: left; }
+.floatright { float: right; }
+a { color: #435884; text-decoration: none; }
+a:link { color: #333; text-decoration: none; }
+a:hover { color: #3399FF; text-decoration: none; }
+body { font-size: 12px; background: url(images/bg.jpg) center top; overflow: hidden }
+.box { width: 100%; margin: 0px auto; padding: 0px auto; background: url(images/header_lbg.png) no-repeat left top; }
+.icons { width: 980px; margin: 0px auto; padding: 10px 0px 5px; text-align: right; }
+.icons img { border: 1px solid #ccc; }
+
+a {color:white;text-decoration:none;}
 body {background:#555 url(bg.jpg) left top;text-align:center;}
 
 #login {margin:0px auto;padding:0px auto;font-size:12px;color:white;text-align:left;
 
 }
 
-.input {border:none;}
+.input,input  {border:none;}
 
 #footer {
     display:block;
@@ -40,6 +62,9 @@ body {background:#555 url(bg.jpg) left top;text-align:center;}
 #password {clear:both;width:210px;height:26px;line-height:26px;margin:12px 0px 6px 8px; padding-left:30px; font-size:14px;font-weight:bold; background:url(password.gif) no-repeat;}
 #verify {width:80px; height:26px;margin-bottom:12px; font-size:14px;font-weight:bold; }
 
-.ss {clear:both; height:26px; margin:10px 8px 6px;}
+.ss {clear:both;width:240px; height:26px; margin:10px 8px 6px;}
 
-.code {margin:10px 9px 0px;vertical-align:middle;}
+.code {clear:both; width:240px; height:28px; line-height:28px; margin:10px 0px 0px 8px; padding:0px;}
+
+.code #verify {float:right; width:159px; height:28px; line-height:28px; padding:0px 10px; border:1px solid #000; border-right:none; color:#888; overflow:hidden;}
+#checkcode {float:right;}

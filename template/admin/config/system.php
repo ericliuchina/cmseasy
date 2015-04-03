@@ -74,13 +74,15 @@ var base_url = '{config::get('site_url')}';
 <div class="template_box">
 <div class="t_box">
 <div class="img-wrap">
-<img src="{config::get('site_url')}/template/{$key2}/skin/thumbnails.jpg" />
+<img src="{$base_url}/template/{$key2}/skin/thumbnails.jpg" />
 </div>
 </div>
 {$val}
 &nbsp;<input name="template_dir_select[]" type="radio" value="{$key2}" {if get($item['name'])==$key2} checked="checked" {/if} onclick="this.form.template_dir.value=this.value" />&nbsp;选择
 </div>
 {/loop}
+<div class="blank10"></div>
+<a href="http://www.cmseasy.cn/template/" class="btn_c" style="display:block;" target="_blank" >更多模板...</a>
 </div>
 </div>
 

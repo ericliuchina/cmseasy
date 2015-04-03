@@ -26,7 +26,7 @@ $config['expire'] = 86400; //24 hours
 // 如果在php.ini开启了safe_mode为'on'的话,请修改此处为true
 $config['safe_mode'] = false;
 // CElive的安装目录
-$config['url'] = 'http://10.211.55.3/cmseasy/celive';
+$config['url'] = 'http://localhost/celive';
 // 语言控制
 $config['lang'] = 'chinese';
 // 公司站点名称
@@ -49,5 +49,4 @@ error_reporting(E_ALL ^ E_NOTICE);
 //error_reporting(0);
 define('CE_ROOT',str_replace("\\", '/', substr(dirname(__FILE__), 0, -7)));
 define('IN_CELIVE',true);
-require_once(CE_ROOT.'../webscan360/360safe/360webscan.php');
 ?>

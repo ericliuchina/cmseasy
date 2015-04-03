@@ -281,7 +281,15 @@ class archive_act extends act {
         $type = $this->view->category;
         $condition = "";
         if (front::post('catid')) {
-            $condition .= "catid = '" . front::post('catid') . "' AND ";
+            $cateobj = category::getInstance();
+            $sons = $cateobj->sons(front::post('catid'));
+            if(is_array($sons) && !empty($sons)){
+                $cids = front::post('catid').','.implode(',',$sons);
+            }else{
+                $cids = front::post('catid');
+            }
+            $condition .= "catid in (".$cids.") AND ";
+            //var_dump($condition);exit;
         }
         $condition .= "(title like '%" . $this->view->keyword . "%'";
         $sets = settings::getInstance()->getrow(array('tag' => 'table-fieldset'));
@@ -839,9 +847,9 @@ class archive_act extends act {
                 }
                 if (front::$post['payname'] && front::$post['payname'] != 'nopay') {
                     
-                    echo '<script type="text/javascript">alert("' . lang('orderssuccess') . ' ' . lang('现在转入支付页面') . '");window.location.href="' . url('archive/payorders/oid/' . front::$post['oid'], true) . '";</script>';
+                    echo '<script type="text/javascript">alert("' . lang('orderssuccess') . ' ' . lang('现在转入支付页面') . '");window.location.href="' . url('archive/payorders/oid/' . front::$post['oid'], true) . '";</script>';exit;
                 }
-                echo '<script type="text/javascript">alert("' . lang('orderssuccess') . '");window.location.href="' . url('archive/orders/oid/' . front::$post['oid'], true) . '";</script>';
+                echo '<script type="text/javascript">alert("' . lang('orderssuccess') . '");window.location.href="' . url('archive/orders/oid/' . front::$post['oid'], true) . '";</script>';exit;
             }
         } elseif (front::get('oid')) {
             preg_match_all("/-(.*)-(.*)-(.*)/isu", front::get('oid'), $oidout);
@@ -909,12 +917,11 @@ class archive_act extends act {
                 foreach ($aid as $key => $val) {
                     $archive = archive::getInstance()->getrow(intval($val['aid']));
                     $val['title'] = $archive['title'];
-					$val['thumb'] = $archive['thumb'];
-					
                     $prices = getPrices($archive['attr2']);
                     $val['attr2'] = $prices['price'];
+                    $val['thumb'] = $archive['thumb'];
+                    $val['url'] = $archive['url'];
                     $aid[$key] = $val;
-					$val['url'] = $archive['url'];
                 }
                 $this->view->orderaidlist = $aid;
                 $this->view->paylist = pay::getInstance()->getrows('', 50);

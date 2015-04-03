@@ -175,12 +175,12 @@ function AdminDecline($sessionid) {
 function LiveMessage($a) {
     global $db;
     $sessionid = $_SESSION['sessionid'];
-    $name = htmlspecialchars($a['name']);
-    $email = htmlspecialchars($a['email']);
-    $country = htmlspecialchars($a['country']);
-    $phone = htmlspecialchars($a['phone']);
-    $departmentid = htmlspecialchars($a['departmentid']);
-    $message = htmlspecialchars($a['message']);
+    $name = addslashes(htmlspecialchars($a['name']));
+    $email = addslashes(htmlspecialchars($a['email']));
+    $country = addslashes(htmlspecialchars($a['country']));
+    $phone = addslashes(htmlspecialchars($a['phone']));
+    $departmentid = addslashes(htmlspecialchars($a['departmentid']));
+    $message = addslashes(htmlspecialchars($a['message']));
     $timestamp = time();
     $ip = $_SERVER['REMOTE_ADDR'];
     $sql = "INSERT INTO `chat` (`sessionid`,`name`,`email`,`phone`,`departmentid`,`message`,`timestamp`,`ip`,`status`) VALUES('" . $sessionid . "','" . $name . "','" . $email . "','" . $phone . "','" . $departmentid . "','" . $message . "','" . $timestamp . "','" . $ip . "','2')";

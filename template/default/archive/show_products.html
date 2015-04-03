@@ -42,153 +42,115 @@
 
 <div class="blank30"></div>
 
-<script src="{$skin_path}/js/products_pic/jqzoom.pack.1.0.1.js" type="text/javascript"></script>
-<script src="{$skin_path}/js/products_pic/jquery.jcarousel.pack.js" type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="{$skin_path}/js/products_pic/jquery.jcarousel.css" />
-<link rel="stylesheet" type="text/css" href="{$skin_path}/js/products_pic/skin.css" />
-<link rel="stylesheet" type="text/css" href="{$skin_path}/js/products_pic/jqzoom.css" />
+<style>
+/*左侧图片*/
+.frame_box{width:340px;float:left;}
+/*大图*/
+ #frame {width:100%;margin:0px;}
+.frame {width:100%;  overflow:hidden;  vertical-align:middle; }
+.frame .list {  list-style:none;  padding:0;  margin:0;  width:10000px; }
+.frame .list li {  width:340px;  float:left;  text-align:center;  vertical-align:middle;  overflow:hidden; }
+ #big_list li img {height:260px;max-width:310px;vertical-align:middle;padding:10px 9px 9px 10px;  background:url({$skin_path}/images/pic_bg.gif) left top no-repeat;  border-right:1px solid white;   border-bottom:1px solid white;}
+/*小图 小图宽度要减去两个左右按钮*/
+ .l_frame {width:280px;float:left;overflow:hidden;}
+ .l_frame .list {list-style:none;padding:0;margin:0;width:10000px;}
+ .l_frame .list li {float:left;height:50px;cursor:pointer; margin:0px 5px; padding:3px 2px 2px 3px;overflow:hidden;
+  background:url({$skin_path}/images/pic_bg.gif) left top no-repeat;border-right:1px solid white; border-bottom:1px solid white;}
+ .l_frame .list li img {height:50px;width:55px;}
+ .l_frame .list .cur {height:50px;overflow:hidden;}/*大图被选中*/
+/*只有按钮*/
+ .slide_nav_left {height:56px;width:26px;background:url({$base_url}/images/goleft.gif) left center no-repeat; display:block;float:left;text-indent:-10000px;}
+ .slide_nav_right { height:56px; width:26px;background:url({$base_url}/images/goright.gif) right center no-repeat;display:block;float:left;text-indent:-10000px; }
+/*右侧列表*/
+ #pro_baseinfo{float:right;width:300px;}
+ </style>
+ <!-- 添加css结束 -->
 
 
-<style type = "text/css">
-#pro_view {clear:both; margin:12px; }
-#pro_infor { float:left; overflow:hidden;}
-.big_pic {
-  float:left;
-  width:330px;
-  overflow:hidden;
-  text-align:center;
-  display:block;
-  position:relative;
-  line-height:1em; 
-}
 
-#image_box {
-  margin:0 auto;
-  /*非IE的主流浏览器识别的垂直居中的方法*/
-  display: table-cell;
-  vertical-align:middle;
-  /*设置水平居中*/
-  text-align:center;
-  /* 针对IE的Hack */
-  *display: block;
-  *font-size: 139px;/*约为高度的0.873，200*0.873 约为175*/
-  *font-family:Arial;/*防止非utf-8引起的hack失效问题，如gbk编码*/
-  padding:5px;
-  border:1px solid #ccc;
-  _border:none;
-  background:url({$skin_path}/images/pic_bg.gif) left top no-repeat;
-  _background:none;
-  border-right:1px solid white; 
-  border-bottom:1px solid white;
- 
-}
-#image_box img {
-  display:block;
-  width:300px;
-  padding:0px;
-  margin:0px auto;
-  vertical-align:middle; 
-}
-#pro_baseinfo {float:right;width:260px;overflow:hidden;}
-#image_list {clear:both;width:330px;}
-#image_list li {height:54px;overflow:hidden;}
-#image_list img {height:50px; padding:2px;cursor:pointer;}
-
-#pro_baseinfo ul li {line-height:32px;}
-.p_info {height:40px;line-height:40px;padding-left:20px;background:url({$skin_path}/images/comment.gif) left center no-repeat;border-bottom:1px dotted #ccc;}
-</style>
-<!-- 幻灯片 -->
-
-<link type="text/css" href="{$base_url}/common/js/jquery/ui/jquery-ui-1.7.3.custom.css" rel="stylesheet" />	
-<script type="text/javascript" src="{$base_url}/common/js/jquery/ui/jquery-ui-1.7.3.custom.min.js"></script>
 <!-- 幻灯片 -->
 
 <?php $pics = @array_values(unserialize($archive[pics])); ?>
-<script type="text/javascript">
+<link type="text/css" href="{$base_url}/common/js/jquery/ui/jquery-ui-1.7.3.custom.css" rel="stylesheet" />	
+<script type="text/javascript" src="{$base_url}/common/js/jquery/ui/jquery-ui-1.7.3.custom.min.js"></script>
 
+<script type="text/javascript">
 $(function() {
-	// 放大镜
-	var options =
-	{
-		zoomWidth: 350,
-		zoomHeight: 250,
-		showEffect:'show',
-		hideEffect:'fadeout',
-		fadeoutSpeed: 'slow',
-		title :false
-	}
-	$(".jqzoom").jqzoom(options);
-	// 图片左右滚动
-	$('#image_list').jcarousel();
-	// 点击小图更换大图
-	$('#image_list img:only-child').click(function(){
-		$('#current_img').attr('src', this.src);
-		// 大图的命名方式为 小图 + 下划线
-		$('#current_img').parent().attr('href', this.alt);
-	});
 	$('#dialog').dialog({
 		autoOpen: false,
 		width   : 300,
 		buttons : {
-			"继续购物"    : function() { 
-							 $(this).dialog("close"); 
-						   }, 
+			"继续购物"    : function() {
+				$(this).dialog("close");
+			}, 
 			"去购物车结算": function() {
-							window.location.href= "{url('archive/orders',true)}";
-							$(this).dialog("close"); 
-						   } 
-				 }
+				window.location.href= "{url('archive/orders',true)}";
+				$(this).dialog("close");
+			}
+		}
 	});
 	$('#dialog_link').click(function(){
-	  $.get("{url('archive/doorders/aid/'.$archive['aid'],true)}", null,function(data){
-		//alert(data);
-	    if(data == 'limit'){
-		  	$("#dialog").html("<p>购物车最多能存12件商品</p>");
-		  }
-
-		$('#dialog').dialog('open');
+		$.get("{url('archive/doorders/aid/'.$archive['aid'],true)}", null,function(data){
+			if(data == 'limit'){
+				$("#dialog").html("<p>购物车最多能存12件商品</p>");
+			}
+			$('#dialog').dialog('open');
 			return false;
-	  });
+		});
 	});
 });
-
 </script>
 <div id="dialog" title="{lang(prompted)}"><p>{lang(add_to_cart)}</p></div>
 <div id="pro_view">
 <div id="pro_infor">
 
 <!-- 左侧产品图 -->
-<div class="big_pic">
-<div id="image_box">
-<a href="{$pics[0]}" class="jqzoom" title=""><img src="{$pics[0]}"  onerror='this.src="{config::get('onerror_pic')}"' alt="" id="current_img"></a>
-</div>
+{if $pics}
 
-<div class="blank10"></div>
-<!-- 小图滚动列表 -->
-<ul id="image_list" class="clear jcarousel-skin-tango">
-{loop $pics $pic}
-{if $pic}<li><img src="{$pic}" alt="{$pic}" onerror='this.src="{config::get('onerror_pic')}"' /></li>{/if}
-{/loop} 
+<div class="frame_box">
+
+<div id="frame">
+<!-- 大图片列表开始 -->
+<div id="big_frame" class="frame">
+<ul id="big_list" class="list">
+{loop $pics $pic}<li><a href="{$pic}" rel="example_group"><img src="{$pic}" onerror='this.src="{config::get('onerror_pic')}"' /></a></li>{/loop}
 </ul>
-
 </div>
+<!-- 大图片列表结束 -->
+</div>
+{/if}
+<div class="blank10"></div>
+<!-- 小图片列表开始 -->
+<a id="back" class="slide_nav_left" href="#">left</a>
+<div id="small_frame" class="l_frame">
+<ul id="small_list" class="list">
+{loop $pics $pic}<li><img src="{$pic}" onerror='this.src="{config::get('onerror_pic')}"' /></li>{/loop}
+</ul>
+</div>
+<a id="forward" class="slide_nav_right" href="#">right</a>
+<!-- 小图片列表结束 -->
+<!-- 幻灯片结束 -->
+</div>
+
 
 <!-- 右侧说明 -->
 <div id="pro_baseinfo">
 <ul>
 <li><strong>{lang(productname)}：</strong>{$archive[title]}</li>
 {if $archive['attr2']}
+{if $archive['attr2']==$archive['oldprice']}
 <li><strong>{lang(price)}：</strong><span>{$archive['attr2']}</span>{lang(unit)}</li>
-{/if}
-{if $archive['oldprice']}
+{else}
 <li><strong>{lang(list_price)}：</strong><span style="text-decoration:line-through;">{$archive['oldprice']}</span>{lang(unit)} </li>
 <li><strong>{lang(discount)}：</strong><span>{$archive['attr2']}</span>{lang(unit)}</li>
+{/if}
+</li>
 {/if}
 <li><strong>{lang(view)}：</strong>{view_js($archive[aid])}</li>
 <li><strong>{lang(adddate)}：</strong>{$archive[adddate]}</li>
 <li><strong>{lang(strgrades)}：</strong>{$archive[strgrade]}</li>
 <li>&nbsp;</li>
-{if $archive[attr2]}<li><a target="_blank" href="{url('archive/orders/aid/'.$archive[aid],true)}"><img style="width:45%;" src="{$skin_path}/images/buy.gif" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="dialog_link" title="{lang(makeorders)}" href="#"><img style="width:45%;" src="{$skin_path}/images/shopping.gif" /></a></li>{/if}
+{if $archive[attr2]}<li><a target="_blank" href="{url('archive/orders/aid/'.$archive[aid],true)}"><img style="width:45%;" src="{$skin_path}/images/buy.gif" /></a>&nbsp;&nbsp;<a id="dialog_link" title="{lang(makeorders)}" href="#"><img style="width:45%;" src="{$skin_path}/images/shopping.gif" /></a></li>{/if}
 </ul>
 </div>
 </div>
@@ -201,6 +163,13 @@ $(function() {
 <!-- 内容说明 -->
 
 {$archive[content]}
+
+
+{if get('share')=='1'}
+<!-- 分享 -->
+<div class="blank30"></div>
+{template 'system/share.html'}
+{/if}
 
 
 <div class="blank30"></div>
@@ -378,12 +347,16 @@ $(document).ready(function(){
 </div>
 <!-- 中部结束 -->
 
-<script defer>
-var obj = document.getElementById("content").getElementsByTagName("img");
-for(i=0;i<obj.length;i++){
-	if(obj[i].width>620){
-		obj[i].width = 620;
-	}
-}
-</script>
+<!-- 商品图片滚动js -->
+<script type="text/javascript" src="{$skin_path}/js/pic_scroll.js"></script>
+
+<!-- 点击大图 -->
+<script type="text/javascript" src="{$skin_path}/js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="{$skin_path}/js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="{$skin_path}/js/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+<script type="text/javascript" src="{$skin_path}/js/fancybox/fancybox.js"></script>
+
+
+{template 'width_max.html'}
+
 {template 'footer.html'}

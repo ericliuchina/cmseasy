@@ -12,7 +12,7 @@
 'install_admin'=>'admin',
 
 //site-站点信息{
-'site_url'=>'http://10.211.55.3/cmseasy/',
+'site_url'=>'http://localhost/',
 
 //网站地址[<span class="hotspot" onmouseover="tooltip.show('http://起始并以 / 结束！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
 
@@ -47,11 +47,11 @@
 
 //后台地址[<span class="hotspot" onmouseover="tooltip.show('强烈推荐安装后第一时间修改登录地址，加强网站后台安全性！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
 
-'cookie_password'=>'53ec5473046f858a634aeebde180fb75',
+'cookie_password'=>'254642bfd3ca6c99f8046efd69e2b52c',
 
 //Cookie安全码[<span class="hotspot" onmouseover="tooltip.show('多站点设置时，此项必须一致！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
 
-'version'=>'V5.5_20150131',//版本[<span class="hotspot" onmouseover="tooltip.show('软件当前版本！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+'version'=>'V5.5_20150318',//版本[<span class="hotspot" onmouseover="tooltip.show('软件当前版本！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
 
 'logo_width'=>'195',
 
@@ -144,7 +144,7 @@
 		
 'html_prefix'=>'',
 
-//html存放路径[<span class="hotspot" onmouseover="tooltip.show('设置html生成后存放目录，为空或以/开头！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+//html存放路径[<span class="hotspot" onmouseover="tooltip.show('设置html生成后存放目录，为空或比如/html');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
 
 'wap_html_prefix'=>'/waphtml',
 		
@@ -247,6 +247,11 @@
 //}
 
 //site-开关设置{
+
+'safe360_enable'=>'1',
+
+//360安全开关[<span class="hotspot" onmouseover="tooltip.show('打开或者关闭360安全功能');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]=>0/关/1/开
+
 'session_ip'=>'0',
 		
 //SESSION验证IP[<span class="hotspot" onmouseover="tooltip.show('设置网站是否启用固定ip登录验证！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]=>0/关/1/开
@@ -279,7 +284,7 @@
 
 'mobile_open'=>'1',
 		
-//手机版开关[<span class="hotspot" onmouseover="tooltip.show('设置网站是否启用手机版功能！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]=>0/关/1/开
+//手机版开关[<span class="hotspot" onmouseover="tooltip.show('设置网站是否启用手机版功能！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]=>0/关/1/开/2/始终
 		
 
 'opguestadd'=>'1', 
@@ -316,7 +321,7 @@
 
 //栏目打开方式[<span class="hotspot" onmouseover="tooltip.show('设置网站导航链接是否在新窗口打开！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]=>0/关/1/开
 
-'isautobak'=>'1', 
+'isautobak'=>'0', 
 
 //数据库自动备份[<span class="hotspot" onmouseover="tooltip.show('数据库可以按日周月自动备份！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]=>0/关/1/每日/2/每周/3/每月
 
@@ -410,51 +415,102 @@
 
 //开启WEB客服[<span class="hotspot" onmouseover="tooltip.show('设置是否启用网站WEB客服系统！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]=>open/开启/close/关闭
 
+'server_template'=>'1',
+
+//选择网站客服样式[<span class="hotspot" onmouseover="tooltip.show('选择网站悬浮客服样式！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]=>1/扁平彩色/2/扁平灰色/3/经典/4/旧时光
+
+
 'boxopen'=>'open',
 
 //默认展开客服列表[<span class="hotspot" onmouseover="tooltip.show('设置网站悬浮客服侧栏默认展开状态！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]=>open/开启/close/关闭
+
+
+'serverlistp'=>'left',
+
+//客服浮动框位置[<span class="hotspot" onmouseover="tooltip.show('设置网站悬浮客服侧栏显示位置！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]=>left/左边/right/右边
 
 'liveboxtip'=>'0', 
 
 //弹出邀请对话框[<span class="hotspot" onmouseover="tooltip.show('设置是否弹出主动要请对话框！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]=>1/开启/0/关闭
 
+'worktime'=>'咨询时间 8:30 - 18:00 周一至周五', 
+
+//工作时间[<span class="hotspot" onmouseover="tooltip.show('填写工作时间！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+'qq1name'=>'客服一', 
+
+//客服职务[<span class="hotspot" onmouseover="tooltip.show('填写联系人职务！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
 
 
-'qq1'=>'', 
+'qq1'=>'871148347', 
 
-//站长QQ[<span class="hotspot" onmouseover="tooltip.show('填写联系QQ号码！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+//QQ号码[<span class="hotspot" onmouseover="tooltip.show('填写联系QQ号码！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
 
-'qq2'=>'', 
+'qq2name'=>'客服二', 
 
-//售前QQ
+//客服职务[<span class="hotspot" onmouseover="tooltip.show('填写联系人职务！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+
+'qq2'=>'233957330', 
+
+//QQ号码[<span class="hotspot" onmouseover="tooltip.show('填写联系QQ号码！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+'qq3name'=>'客服三', 
+
+//客服职务[<span class="hotspot" onmouseover="tooltip.show('填写联系人职务！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
 
 'qq3'=>'', 
 
-//售后QQ
+//QQ号码[<span class="hotspot" onmouseover="tooltip.show('填写联系QQ号码！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+'qq4name'=>'客服四', 
+
+//客服职务[<span class="hotspot" onmouseover="tooltip.show('填写联系人职务！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
 
 'qq4'=>'',
 
-//售后QQ
+//QQ号码[<span class="hotspot" onmouseover="tooltip.show('填写联系QQ号码！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+'qq5name'=>'客服五', 
+
+//客服职务[<span class="hotspot" onmouseover="tooltip.show('填写联系人职务！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
 
 'qq5'=>'',
 
-//售后QQ
+//QQ号码[<span class="hotspot" onmouseover="tooltip.show('填写联系QQ号码！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
 
-'wangwang'=>'', 
+'wangwangname'=>'淘宝客服', 
 
-//淘宝旺旺
+//客服职务[<span class="hotspot" onmouseover="tooltip.show('填写联系人职务！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
 
-'ali'=>'', 
+'wangwang'=>'cmseasy', 
 
-//阿里旺旺
+//淘宝旺旺号码[<span class="hotspot" onmouseover="tooltip.show('填写联系淘宝旺旺号码！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
 
-'skype'=>'', 
+'aliname'=>'阿里巴巴', 
 
-//Skype
+//客服职务[<span class="hotspot" onmouseover="tooltip.show('填写联系人职务！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
 
-'msn'=>'', 
+'ali'=>'cmseasy', 
 
-//Msn
+//阿里旺旺号码[<span class="hotspot" onmouseover="tooltip.show('填写联系阿里旺旺号码！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+'skypename'=>'Skype客服', 
+
+//客服职务[<span class="hotspot" onmouseover="tooltip.show('填写联系人职务！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+'skype'=>'admin@admin.com', 
+
+//Skype号码[<span class="hotspot" onmouseover="tooltip.show('填写联系Skype号码！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+'msnname'=>'Msn客服', 
+
+//客服职务[<span class="hotspot" onmouseover="tooltip.show('填写联系人职务！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+'msn'=>'admin@admin.com', 
+
+//Msn号码[<span class="hotspot" onmouseover="tooltip.show('填写联系Msn号码！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
 
 //}
 
@@ -689,6 +745,69 @@
 
 //}
 
+
+//wslide-手机幻灯图片{
+'wslide_pic1'=>'/images/slide/banner01.jpg',
+
+//图片1地址[<span class="hotspot" onmouseover="tooltip.show('上传幻灯中的图片！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]=>image
+
+'wslide_pic1_title'=>'CmsEasy3.0助力企业网络营销',
+
+//图片1标题[<span class="hotspot" onmouseover="tooltip.show('填写幻灯中的标题！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+'wslide_pic1_url'=>'http://www.cmseasy.cn',
+
+//图片1链接地址[<span class="hotspot" onmouseover="tooltip.show('注意链接中的&要用%26替换！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+'wslide_pic2'=>'/images/slide/banner02.jpg', 
+
+//图片2地址[<span class="hotspot" onmouseover="tooltip.show('上传幻灯中的图片！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]=>image
+
+'wslide_pic2_title'=>'海量精美CmsEasy模板免费下载', 
+
+//图片2标题[<span class="hotspot" onmouseover="tooltip.show('填写幻灯中的标题！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+'wslide_pic2_url'=>'http://www.cmseasy.cn', 
+
+//图片2链接地址[<span class="hotspot" onmouseover="tooltip.show('注意链接中的&要用%26替换！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+'wslide_pic3'=>'/images/slide/banner03.jpg', 
+
+//图片3地址[<span class="hotspot" onmouseover="tooltip.show('上传幻灯中的图片！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]=>image
+
+'wslide_pic3_title'=>'免费下载CmsEasy,还有机会获取商业授权',
+
+//图片3标题[<span class="hotspot" onmouseover="tooltip.show('填写幻灯中的标题！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+'wslide_pic3_url'=>'http://www.cmseasy.cn',
+
+//图片3链接地址[<span class="hotspot" onmouseover="tooltip.show('注意链接中的&要用%26替换！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+'wslide_pic4'=>'/images/slide/banner04.jpg',
+
+//图片4地址[<span class="hotspot" onmouseover="tooltip.show('上传幻灯中的图片！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]=>image
+
+'wslide_pic4_title'=>'欢迎网建公司及工作室参与CmsEasy官方分享计划', 
+
+//图片4标题[<span class="hotspot" onmouseover="tooltip.show('填写幻灯中的标题！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+'wslide_pic4_url'=>'http://www.cmseasy.cn',
+
+//图片4链接地址[<span class="hotspot" onmouseover="tooltip.show('注意链接中的&要用%26替换！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+'wslide_pic5'=>'/images/slide/banner05.jpg',
+
+//图片5地址[<span class="hotspot" onmouseover="tooltip.show('上传幻灯中的图片！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]=>image
+
+'wslide_pic5_title'=>'CmsEasy服务/售后/程序多重升级', 
+
+//图片5标题[<span class="hotspot" onmouseover="tooltip.show('填写幻灯中的标题！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+'wslide_pic5_url'=>'http://www.cmseasy.cn',
+
+//图片5链接地址[<span class="hotspot" onmouseover="tooltip.show('注意链接中的&要用%26替换！');" onmouseout="tooltip.hide();"><img src="./images/remind.gif" alt="" width="14" height="20" style="margin-left:10px; margin-right:5px; /"></span>]
+
+//}
 
 //cslide-内页切换图片{
 'cslide_pic1'=>'images/banner/01.jpg',

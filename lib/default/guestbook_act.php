@@ -99,7 +99,7 @@ class guestbook_act extends act {
     //# 手机 邮件留言保存页面 
     function emailpost_action() {
     	if(!front::post('guestemail')) {
-    		front::flash(lang('请填写联系电话！'));
+    		front::flash(lang('请填写联系邮箱！'));
     		return false;
     	}
     	if(!front::post('title')) {

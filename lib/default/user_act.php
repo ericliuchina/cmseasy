@@ -30,6 +30,11 @@ class user_act extends act {
     }
     function index_action() {
         $this->view->data=$this->view->user;
+        if (front::get('t') == 'wap') {
+            $tpl = 'wap/user/index.html';
+            $this->render($tpl);
+            exit;
+        }
     }
     function space_action() {
         //$space=new user();
@@ -52,6 +57,9 @@ class user_act extends act {
         if(front::post('submit')) {
         	unset(front::$post['groupid']);
         	unset(front::$post['powerlist']);
+            if(!is_email(front::$post['e_mail'])){
+                alerterror('邮箱格式不对');
+            }
         	foreach (front::$post as $k => $v){
         		if(is_array($v) && !empty($v)){
         			front::$post[$k] = implode(',', $v);
@@ -213,6 +221,11 @@ class user_act extends act {
                 }
             }
             $this->view->ologinlist = ologin::getInstance()->getrows('',50);
+        if (front::get('t') == 'wap') {
+            $tpl = 'wap/login.html';
+            $this->render($tpl);
+            exit;
+        }
     }
     function dialog_login_action() {
         if(!$this->loginfalsemaxtimes())
@@ -292,6 +305,7 @@ class user_act extends act {
     
     function register_action() {
     	//echo session::get('verify');
+
         if(front::post('submit')) {
             if(!config::get('reg_on')) {
                 front::flash(lang('网站已经关闭注册！'));
@@ -313,7 +327,7 @@ class user_act extends act {
                 front::flash(lang('用户名太短！'));
                 return;
             }
-            if(strlen(front::post('e_mail'))<1) {
+            if(strlen(front::post('e_mail'))<1 && !is_email(front::post('e_mail'))) {
                 front::flash(lang('请填写邮箱！'));
                 return;
             }
@@ -408,6 +422,11 @@ class user_act extends act {
                 return;
             }
         }
+        if (front::get('t') == 'wap') {
+            $tpl = 'wap/register.html';
+            $this->render($tpl);
+            exit;
+        }
     }
     function changepassword_action() {
         if(front::post('dosubmit') &&front::post('password')) {
@@ -424,11 +443,11 @@ class user_act extends act {
             echo template('user/getpass.html');
         }else if(front::post('step') == '1') {
             if(!session::get('verify') ||front::post('verify')<>session::get('verify')) {
-                front::flash(lang('验证码错误！'));
+                alerterror(lang('验证码错误！'));
                 return;
             }
             if(strlen(front::post('username'))<4) {
-                front::flash(lang('用户名太短！'));
+                alerterror(lang('用户名太短！'));
                 return;
             }
             $user=new user();

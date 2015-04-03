@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 class special_act extends act {
     function list_action() {

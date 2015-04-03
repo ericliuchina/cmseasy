@@ -187,6 +187,7 @@ class admin_menu {
                         '热门标签'=>url::create('config/hottag'),
                         '语言包编辑'=>url::create('language/edit'),
                         '幻灯片设置'=>url::create('config/system/set/slide'),
+						'手机幻灯设置'=>url::create('config/system/set/wslide'),
 						'内页切换图片'=>url::create('config/system/set/cslide'),
                         '焦点图设置'=>url::create('config/system/set/ifocus'),
                         '短信设置'=>url::create('config/system/set/sms'),

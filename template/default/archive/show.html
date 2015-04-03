@@ -113,6 +113,13 @@
 <!-- 自定义表单结束 -->
 
 
+{if get('share')=='1'}
+<!-- 分享 -->
+<div class="blank30"></div>
+{template 'system/share.html'}
+{/if}
+
+
 <script language="JavaScript">
 function shutwin(){
 window.close();

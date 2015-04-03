@@ -15,6 +15,21 @@
 
 include('../include/config.inc.php');
 include_once(CE_ROOT.'/include/celive.class.php');
+
+$root = dirname(__FILE__);
+$root = str_replace('/celive/live','',$root);
+$root = str_replace('\\celive\\live','',$root);
+define('ROOT',$root);
+//echo ROOT.'/config/config.php';exit;
+$web_config = require_once(ROOT.'/config/config.php');
+//echo dirname(__FILE__).'/../webscan360/360safe/360webscan.php';
+if($web_config['safe360_enable']){
+    if(is_file(dirname(__FILE__).'/../../webscan360/360safe/360webscan.php')){
+        require_once(dirname(__FILE__).'/../../webscan360/360safe/360webscan.php');
+        //echo 1;
+    }
+}
+
 $ac=addslashes($_GET['action']);
 if($ac=='1'){
 

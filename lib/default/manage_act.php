@@ -11,16 +11,15 @@ class manage_act extends act {
             $user = 'Guest';
         }else {
             $username = cookie::get('login_username');
-            $password = md5(cookie::get('login_password'));
+            $password = cookie::get('login_password');
             if($username != '' && $password != '') {
                 $user = new user();
-                $guestuser = $user = $user->getrow(array('username'=>$username,'password'=>$password));
+                $guestuser = $user = $user->getrow(array('username'=>$username));
+                if(front::cookie_encode($user['password']) != $password){
+                    $guestuser = $user = '';
+                }
             }
         }
-        /*if(cookie::get('login_username') &&cookie::get('login_password')) {
-            $guestuser=new user();
-            $guestuser=$guestuser->getrow(array('username'=>cookie::get('login_username')));
-        }*/
         $this->view->guestuser = $guestuser;
         if(!$user &&front::$act != 'login'&&front::$act != 'register')  front::redirect(url::create('user/login'));
         $this->view->user=$user;
@@ -55,6 +54,11 @@ class manage_act extends act {
         $where="mid={$this->view->user['userid']}";
         $this->_view_table=$this->_table->getrows($where,$limit,'1 desc',$this->_table->getcols('manage'));
         $this->view->record_count=$this->_table->record_count;
+		if (front::get('t') == 'wap') {
+            $tpl = 'wap/user/orderslist.html';
+            $this->render($tpl);
+            exit;
+        }
     }
     function add_action() {
         if(front::post('submit') &&$this->manage->vaild()) {
@@ -70,7 +74,8 @@ class manage_act extends act {
             $fieldlimit=$this->_table->getcols(front::$act=='list'?'user_manage':'user_modify');
             $fieldlimits=explode(',',$fieldlimit);
             foreach(front::$post as $key=>$value) {
-            	if(preg_match('/(select|union|and|\'|"|\))/i',$value)){
+            	if(preg_match('/(select|union|and|load_file)/i',$value)){
+                    //echo $value;
             		exit('非法参数');
             	}
                 if(in_array($key,$fieldlimits))

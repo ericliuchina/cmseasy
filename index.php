@@ -1,7 +1,4 @@
 <?php
-if(is_file(dirname(__FILE__).'/webscan360/360safe/360webscan.php')){
-   require_once(dirname(__FILE__).'/webscan360/360safe/360webscan.php');
-}
 /**
  * cmseasy: index.php
  * ============================================================================
@@ -12,9 +9,9 @@ if(is_file(dirname(__FILE__).'/webscan360/360safe/360webscan.php')){
  * 您可以免费应用与商业网站，但需要保留软件版权及版权链接。
  * ============================================================================
  *
- * @version:    v5.5 r20150121
+ * @version:    v5.5 r20150208
  * ---------------------------------------------
- * $Id: index.php 2014/01/21
+ * $Id: index.php 2015/02/08
  */
 
 header("Pragma:no-cache\r\n");
@@ -46,17 +43,20 @@ class time {
 function is_mobile() {
 	if(!config::get('mobile_open')){
 		return false;
-	}
-	$user_agent = $_SERVER['HTTP_USER_AGENT'];
-	$mobile_agents = Array("240x320","acer","acoon","acs-","abacho","ahong","airness","alcatel","amoi","android","anywhereyougo.com","applewebkit/525","applewebkit/532","asus","audio","au-mic","avantogo","becker","benq","bilbo","bird","blackberry","blazer","bleu","cdm-","compal","coolpad","danger","dbtel","dopod","elaine","eric","etouch","fly ","fly_","fly-","go.web","goodaccess","gradiente","grundig","haier","hedy","hitachi","htc","huawei","hutchison","inno","ipad","ipaq","ipod","jbrowser","kddi","kgt","kwc","lenovo","lg ","lg2","lg3","lg4","lg5","lg7","lg8","lg9","lg-","lge-","lge9","longcos","maemo","mercator","meridian","micromax","midp","mini","mitsu","mmm","mmp","mobi","mot-","moto","nec-","netfront","newgen","nexian","nf-browser","nintendo","nitro","nokia","nook","novarra","obigo","palm","panasonic","pantech","philips","phone","pg-","playstation","pocket","pt-","qc-","qtek","rover","sagem","sama","samu","sanyo","samsung","sch-","scooter","sec-","sendo","sgh-","sharp","siemens","sie-","softbank","sony","spice","sprint","spv","symbian","talkabout","tcl-","teleca","telit","tianyu","tim-","toshiba","tsm","up.browser","utec","utstar","verykool","virgin","vk-","voda","voxtel","vx","wap","wellco","wig browser","wii","windows ce","wireless","xda","xde","zte");
-	$is_mobile = false;
-	foreach ($mobile_agents as $device) {
-		if (stristr($user_agent, $device)) {
-			$is_mobile = true;
-			break;
-		}
-	}
-	return $is_mobile;
+	}elseif(config::get('mobile_open') == 2){
+        return true;
+    }else {
+        $user_agent = $_SERVER['HTTP_USER_AGENT'];
+        $mobile_agents = Array("240x320", "acer", "acoon", "acs-", "abacho", "ahong", "airness", "alcatel", "amoi", "android", "anywhereyougo.com", "applewebkit/525", "applewebkit/532", "asus", "audio", "au-mic", "avantogo", "becker", "benq", "bilbo", "bird", "blackberry", "blazer", "bleu", "cdm-", "compal", "coolpad", "danger", "dbtel", "dopod", "elaine", "eric", "etouch", "fly ", "fly_", "fly-", "go.web", "goodaccess", "gradiente", "grundig", "haier", "hedy", "hitachi", "htc", "huawei", "hutchison", "inno", "ipad", "ipaq", "ipod", "jbrowser", "kddi", "kgt", "kwc", "lenovo", "lg ", "lg2", "lg3", "lg4", "lg5", "lg7", "lg8", "lg9", "lg-", "lge-", "lge9", "longcos", "maemo", "mercator", "meridian", "micromax", "midp", "mini", "mitsu", "mmm", "mmp", "mobi", "mot-", "moto", "nec-", "netfront", "newgen", "nexian", "nf-browser", "nintendo", "nitro", "nokia", "nook", "novarra", "obigo", "palm", "panasonic", "pantech", "philips", "phone", "pg-", "playstation", "pocket", "pt-", "qc-", "qtek", "rover", "sagem", "sama", "samu", "sanyo", "samsung", "sch-", "scooter", "sec-", "sendo", "sgh-", "sharp", "siemens", "sie-", "softbank", "sony", "spice", "sprint", "spv", "symbian", "talkabout", "tcl-", "teleca", "telit", "tianyu", "tim-", "toshiba", "tsm", "up.browser", "utec", "utstar", "verykool", "virgin", "vk-", "voda", "voxtel", "vx", "wap", "wellco", "wig browser", "wii", "windows ce", "wireless", "xda", "xde", "zte");
+        $is_mobile = false;
+        foreach ($mobile_agents as $device) {
+            if (stristr($user_agent, $device)) {
+                $is_mobile = true;
+                break;
+            }
+        }
+        return $is_mobile;
+    }
 }
 
 time::start();
@@ -67,8 +67,15 @@ define('TEMPLATE',dirname(__FILE__).'/template');
 if(!defined('THIS_URL')) define('THIS_URL','');
 
 set_include_path(ROOT.'/lib/default'.PATH_SEPARATOR.ROOT.'/lib/plugins'.PATH_SEPARATOR.ROOT.'/lib/tool'.PATH_SEPARATOR.ROOT.'/lib/table'.PATH_SEPARATOR.ROOT.'/lib/inc');
+
 include_once 'front_class.php';
 include_once 'userfunction.php';
+
+if(config::get('safe360_enable')){
+    if(is_file(dirname(__FILE__).'/webscan360/360safe/360webscan.php')){
+        require_once(dirname(__FILE__).'/webscan360/360safe/360webscan.php');
+    }
+}
 
 $debug=config::get('isdebug');//1提示错误，0禁止
 
